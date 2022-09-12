@@ -49,6 +49,34 @@ resource "azurerm_public_ip" "azpip01" {
   }
 }
 
+resource "azurerm_storage_account" "example" {
+  name                     = "storageaccountname"
+  resource_group_name      = azurerm_resource_group.az_rg[2].name
+  location                 = azurerm_resource_group.az_rg[2].location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+
+  tags = {
+    environment = "staging"
+  }
+  depends_on = [
+    azurerm_public_ip.azpip01
+  ]
+}
+
+output "rg_names" {
+   value = azurerm_resource_group.az_rg[*].id
+}
+
+output "azpip" {
+   value = azurerm_public_ip.azpip01[0].ip_address
+}
 
 
- 
+
+ #count  = var.create_pip ? 1 : 0
+
+ #var1   = var.env == "prod" ? var.subnet[1] : var.subnet[2]
+
+ #name   = var.input == "vishwa" ? cloud : infra
+
