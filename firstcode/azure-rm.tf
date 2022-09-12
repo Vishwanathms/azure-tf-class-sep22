@@ -12,7 +12,7 @@ provider "azurerm" {
 }
 
 variable "rg_env" {
-  description = "Provide the ResourceGroup Location on Azure"
+  description = "Provide ResourceGroup Location on Azure"
   type        = list
 }
 
