@@ -5,6 +5,21 @@ variable "rg_name" {
   default = ["RG-0001"]
 }
 
+variable "rg_env" {
+  description = "Provide the ResourceGroup name on Azure"
+  type        = string
+}
+
+variable "pip_name" {
+  description = "Provide the Azure PIP name"
+  type        = string
+}
+
+variable "create_pip" {
+  description = "True/false for creating PIP"
+  type        = bool
+}
+
 /*variable "rg_location" {
   description = "Provide the ResourceGroup Location on Azure"
   type        = list
@@ -21,4 +36,3 @@ variable "namestn" {
     "westus"  = "wus-rg"
   }
 }
-

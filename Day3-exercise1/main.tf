@@ -70,18 +70,17 @@ resource "azurerm_resource_group" "az_rg" { # Resource BLOCK
         name
     ]
   }
-  provisioner "local-exec" {
+  /*provisioner "local-exec" {
         #command = "echo $var1, $var2 >> env_vars.txt"
-         command = ipconfig > "test.txt"
+        #command = ipconfig > "test.txt"
         environment = {
             var1 = "Vishwa"
             var2 = length(var.rg_name)
         }
-  }
+  }*/
+
+
 }
-
-
-
 # example for boolean variable.
 
 
