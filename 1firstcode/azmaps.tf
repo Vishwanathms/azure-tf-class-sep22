@@ -47,6 +47,10 @@ resource "azurerm_public_ip" "azpip01" {
   tags = {
     environment = var.rg_env[2]
   }
+
+  depends_on = [
+    azurerm_storage_account.example
+  ]
 }
 
 resource "azurerm_storage_account" "example" {
@@ -59,9 +63,7 @@ resource "azurerm_storage_account" "example" {
   tags = {
     environment = "staging"
   }
-  depends_on = [
-    azurerm_public_ip.azpip01
-  ]
+
 }
 
 output "rg_names" {
